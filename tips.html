@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tips Page HTML</title>
+    </head>
+    <body>
+        <h1>Abdul Shaik - computes tips</h1>
+
+        <form>
+            <label for="amount">Enter a check amount </label>
+            <input type ="number" id="amount" value=20> <br>
+        
+            <label for="increase_tip">Enter tip increase </label>
+            <input type ="number" id="increase_tip" value="0.05"> <br>
+        
+            <input type="button" onclick="tips()" value="Find tips">
+        </form>
+
+        <p id="result">This text will be replaced </p>
+
+        <script>
+            function tips(){
+                console.log("Getting form values")
+                var amount = document.getElementById("amount").value
+                var increase_tip = document.getElementById("increase_tip").value
+                var result = "Tip amounts by increase of " + increase_tip + " are : "
+
+                var sum = amount*0.1
+                result+=sum + 0.0
+
+                for(let i=1;i<10;i++){
+                    var z = sum +(amount * increase_tip);
+                    result+= ","+Math.round(z*10)/10
+                    sum = Math.round(z*10)/10
+                }
+                document.getElementById('result').innerHTML=result;
+            }
+        </script>
+
+<form>
+    <input type="radio" id="*" value="times" onclick="chooseOp()" >
+    <label for="*">*</label></br>
+  
+    <input type="radio" id="/" value="divide" onclick="chooseOp()">
+    <label for="/">/</label></br>
+  
+    <input type="radio" id="**"  value="exponent" onclick="chooseOp()">
+    <label for="**">**</label></br>
+</form>
+
+<p id="After Operations"> performed operation results</p>
+<script>
+    function chooseOp(){
+    var amt = document.getElementById("amount").value
+    var tip = document.getElementById("increase_tip").value
+    exponent=document.getElementById("**").checked 
+    times=document.getElementById("*").checked
+    divide=document.getElementById("/").checked
+    
+    if(exponent){
+        document.getElementById('After Operations').innerHTML="<b>(Amount ** TipIncrease) Value is: </b>"+amt**tip
+    }else if(times){
+        document.getElementById('After Operations').innerHTML="<b>(Amount * TipIncrease) Value is: </b>"+amt*tip
+    }else if(divide){
+        document.getElementById('After Operations').innerHTML="<b>(Amount / TipIncrease) value is: </b>"+amt/tip
+    }
+}
+</script>
+    </body>
+</html>
