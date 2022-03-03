@@ -23,13 +23,13 @@
 
 var correct = 0
 var wrong = 0
-
+var count=0;
 function checkGuess (){
     console.log("Getting form values")
     Name = document.getElementById("form_name").value
     Guess = document.getElementById("form_guess").value
 
-    if(pass==phrase){
+    if(Name==Guess){
         count=0
         correct=correct+1
         alert("Access allowed")
