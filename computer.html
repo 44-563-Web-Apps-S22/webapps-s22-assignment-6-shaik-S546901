@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Computer Page</title>
+    </head>
+    <body>
+        <h1>Abdul Shaik - Orders a computer</h1>
+
+        <form>
+            <label for="memory">Extra memory</label>
+            <input type ="checkbox" id="memory" name="extra"> <br>
+        
+            <label for="mouse">Mouse</label>
+            <input type ="checkbox" id="mouse" name="mouse"> <br>
+        
+            <label for="cell">Cell service</label>
+            <input type ="checkbox" id="cell" name="cell"> <br>
+        
+            <input type="button" onclick="orderComputer()" value="Order a computer">
+        </form>
+        
+        
+        <p id="Output - result">Output - Result </p>
+
+        <script> 
+            var my_computer={}
+            
+            function orderComputer(){
+                let my_computer={}
+                memory=document.getElementById("memory").checked    
+                if(memory){
+                    my_computer.memory=true;
+                }else{
+                    my_computer.memory=false;
+                }
+                
+                mouse=document.getElementById("mouse").checked
+                if(mouse){
+                    my_computer.mouse=true;
+                }else{
+                    my_computer.mouse=false;
+                }
+            
+                cell=document.getElementById("cell").checked
+                if(cell){
+                    my_computer.cell=true;
+                }else{
+                    my_computer.cell=false;
+                }
+            
+                document.getElementById("Output - result").innerHTML="extra_memory: "+my_computer.memory+"<br> mouse: "+my_computer.mouse+" <br> Cell: "+my_computer.cell
+            }
+            </script>
+            <form>
+                <label for="property">Enter a property name </label>
+                <input type ="text" id="property"  value="engraved"> <br>
+            
+                <label for="value">Enter a value</label>
+                <input type ="text" id="propertyvalue" > <br>
+            
+                <input type="button" onclick="updateComputer()" value="Update the computer">
+            </form>
+            <p id="Final result">final result</p>
+            <script>
+                function updateComputer(){
+                    var propertyname=document.getElementById("property").value
+                    var propertyvalue=document.getElementById("propertyvalue").value
+                    my_computer[propertyname]=propertyvalue
+                    document.getElementById("Final result").innerHTML = "my_computer[]=  " + JSON.stringify(my_computer) +"<b>Successfully updated</b>";
+            
+                }
+            </script>
+    </body>
+</html>
