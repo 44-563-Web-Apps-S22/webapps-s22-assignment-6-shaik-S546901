@@ -29,6 +29,21 @@ function checkGuess (){
     Name = document.getElementById("form_name").value
     Guess = document.getElementById("form_guess").value
 
+    if(pass==phrase){
+        count=0
+        correct=correct+1
+        alert("Access allowed")
+        }
+        else {
+            if(count<3){
+            wrong=wrong+1
+            count=count+1
+        alert("Access denied")
+        }
+        else {
+            alert("Sorry ,Game Over")
+            }
+    }
     
     out = document.getElementById("result")
 
